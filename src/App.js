@@ -30,6 +30,18 @@ const ItemPage=()=>{
 }
 
 
+const CatPage=()=>{
+
+  let {id} = useParams();
+  let url = "https://assets.codepen.io/7656708/cat"+id+".jpg";
+  return(<div>
+    <h1>Item</h1>
+    
+    <div><img src={url}/></div>
+  </div>)
+}
+
+
 const ItemsPage=()=>{
   return(<div>
     <h1>Items</h1>
@@ -55,7 +67,7 @@ function App() {
     456
     <Link to="/Home">Home</Link>*
     <Link to="/About">About our Company</Link>*
-    <Link to="/List">List as Class</Link>*
+    <Link to="/Cats">Cats</Link>*
     <Link to="/Home/Items">See our Catalog</Link>
    
     <hr/>
@@ -63,9 +75,10 @@ function App() {
       <Route path="/" element={<HomePage/>}/>
       <Route path="/Home" element={<HomePage/>}/>
       <Route path="/About" element={<AboutUsPage/>}/>
-      <Route path="/List" element={<List/>}/>
+      <Route path="/Cats" element={<List/>}/>
         <Route path="/Home/Items" element={<ItemsPage/>}/>
         <Route path="/Items/Item/:name" element={<ItemPage/>}/>
+        <Route path="/Cats/Cat/:id" element={<CatPage/>}/>
       </Routes>
     </BrowserRouter>
     </div>
